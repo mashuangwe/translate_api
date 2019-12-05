@@ -7,10 +7,6 @@ import random
 import json
 import time
 
-appid = 'xxxxx'  # 填写你的appid
-secretKey = 'xxxxxxxxx'  # 填写你的密钥
-
-httpClient = None
 
 def baidu_translate(q, fromLang, toLang):
     salt = random.randint(32768, 65536)
@@ -38,9 +34,7 @@ def baidu_translate(q, fromLang, toLang):
         if httpClient:
             httpClient.close()
         return result
-            
-fromLang = 'zh'  # 原文语种
-toLang = 'en'  # 译文语种
+          
 
 def check_res(res):
     if res is None or \
@@ -51,6 +45,7 @@ def check_res(res):
         len(res['trans_result'][0]['dst']) == 0:
         return False
     return True
+
     
 def total_translate(source_file, result_file):
     answer_dict = dict()
@@ -87,6 +82,12 @@ def total_translate(source_file, result_file):
 
             
 if __name__ == '__main__':
+    appid = 'xxxxx'  # 填写你的appid
+    secretKey = 'xxxxxxxxx'  # 填写你的密钥
+    fromLang = 'zh'  # 原文语种
+    toLang = 'en'  # 译文语种
+    httpClient = None
+    
     source_file = os.path.join(prefix, 'haha.txt')
     result_file = os.path.join(prefix, 'result.txt')
     total_translate(source_file, result_file)
