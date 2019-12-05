@@ -85,3 +85,11 @@ def total_translate(source_file, result_file):
             line_zh = q_zh['trans_result'][0]['dst']
             answer_dict[line] = line_zh
             fw.write(line_zh + '\n')
+
+            
+if __name__ == '__main__':
+    source_file = os.path.join(prefix, 'haha.txt')
+    result_file = os.path.join(prefix, 'result.txt')
+    total_translate(source_file, result_file)
+    
+    
