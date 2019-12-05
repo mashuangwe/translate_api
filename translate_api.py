@@ -30,15 +30,14 @@ def baidu_translate(q, fromLang, toLang):
         result_all = response.read().decode("utf-8")
         result = json.loads(result_all)
         
-#         print(result + '\n')
-        return result
-        
     except Exception as e:
         print(e)
-
+        result = None
+        
     finally:
         if httpClient:
             httpClient.close()
+        return result
             
 fromLang = 'zh'  # 原文语种
 toLang = 'en'  # 译文语种
